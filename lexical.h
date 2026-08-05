@@ -17,7 +17,7 @@ extern const char *non_reserved[];
 
 extern const char *operators[];
 extern const char *braces[];
-extern const char *delimiter[]; //storing delimiter also as a string 
+extern const char *delimiter[]; 
 extern const char *preprocessor_directives[];
 
 Status validate(int argc, char *argv[]);
