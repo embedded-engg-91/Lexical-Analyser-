@@ -1,13 +1,6 @@
 #include "lexical.h"
  Status tokeniser(char *buffer)
  {
-    
-    
-    
-    
-    
-    
-
     char *temp=buffer;
     int i=0;
     char token[100];
