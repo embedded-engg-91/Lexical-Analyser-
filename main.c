@@ -10,7 +10,7 @@ const char *non_reserved[]={"goto", "return", "continue", "break", "if",
 
 const char *operators[]={"~", "+", "-", "*", "/", "%", "=", "<", ">", "-", "&",",", "!", "^", "|", NULL};
 const char *braces[]={ "{", "}", "(", ")", "[", "]", NULL};
-const char *delimiter[]={";", NULL}; //storing delimiter also as a string 
+const char *delimiter[]={";", NULL}; 
 
 const char *preprocessor_directives[] =
 {
@@ -36,10 +36,10 @@ Status validate(int argc, char *argv[])
         return FAILURE;
     }
 
-    // at the end we need .c extension
+    
     char *pos = strrchr(argv[1], '.');
-    if(pos==NULL) return FAILURE; //if '.' not fiund then directly return failure 
-    if (strcmp(pos, ".c") == 0) //no need of extra pointer 
+    if(pos==NULL) return FAILURE; 
+    if (strcmp(pos, ".c") == 0) 
     {
         return SUCCESS;
     }
@@ -50,18 +50,18 @@ int main(int argc, char *argv[])
     if(validate(argc, argv)==SUCCESS)
     {
         FILE *fptr;
-        if(file_handler(&fptr, argv[1])==FILE_FOUND) //pass by refernce conceptna 
+        if(file_handler(&fptr, argv[1])==FILE_FOUND) 
         {
-            //now i nned the tokeniser fucntion and i need ot keep printing thewors ans 
-            //after need to close the file as well 
+            
+            
             char buffer[1000];
             while(fgets(buffer, sizeof(buffer), fptr)!=NULL)
             {
-                //need to call the tokeniser function for the buffer
-                //now buffer has that entire line 
+                
+                
                 tokeniser(buffer);
             }
-            fclose(fptr); //we also need to close the file 
+            fclose(fptr); 
         }
         else
         {
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
         printf("Invalid Input Argments\nPlease Try Again\n");
         
     }
-    // after validation call the file handler fun to know wheter file erxosts and open it
-    // then get each line from the fiel and pass it to tokeniser untile eof
+    
+    
     return 0;
 }
